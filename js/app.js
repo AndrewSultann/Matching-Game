@@ -4,11 +4,12 @@ let cards = ["far fa-gem", "far fa-gem", "far fa-paper-plane", "far fa-paper-pla
 let opened=[];
 let moves = 0;
 let matches= 0;
+let timer;
 
 createCards();
 play();
 playAgain();
-timer();
+startTimer();
 
 //Shuffle the cards
 function shuffle(array) {
@@ -109,6 +110,7 @@ function winGame() {
     $(".main").css("display","none");
     $(".header").css("display","none");    
     $(".winner").css("display","block");
+    clearInterval(timer)
     } 
 }
 
@@ -133,7 +135,7 @@ function stars() {
     } 
 }
 
-function timer(){
+function startTimer(){
    let secs=0,
        clicks=0;     
     $(".card").on("click", function(){
