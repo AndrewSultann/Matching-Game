@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head> 
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.1/css/all.css" integrity="sha384-50oBUHEmvpQ+1lW4y57PTFmhCaXp0ML5d60M1M7uH2+nqUivzIebhndOJK28anvf" crossorigin="anonymous">
+    <link rel="stylesheet prefetch" href="https://fonts.googleapis.com/css?family=Coda">
+    <link rel="stylesheet" href="css/styles.css">
+    <title>Memory Game</title>
+</head>
+<body>
+    <header class="header">
+        <h1 class="title">Matching Game</h1>
+        <div class="display">
+            <ul class="stars">
+                <li><i class="fa fa-star"></i></li>
+                <li><i class="fa fa-star"></i></li>
+                <li><i class="fa fa-star"></i></li>
+            </ul>
+            <span class="movesDis"><span class="moves">0</span><span id="movesText"> Moves</span></span>
+            <span class="timer"><span class="mins">00</span>:<span class="secs">00</span></span>
+            <span class="refresh"><i class="fas fa-redo-alt"></i></span>
+        </div>
+    </header>
+    <main class="main">
+        <ul class="deck">
+            
+        </ul> 
+    </main>
+    <div class="winner bounceIn">
+        <div class="done"> <i class="far fa-check-circle"></i></div>
+        <h2 class="h2">Congratulations! You Won !</h2>
+        <p>With <span class="moves">0</span> Moves and your Rating is <span class="noStars"></span> Stars</p>
+        <button class="refresh">Play Again</button>
+    </div>
+<script src="js/jquery3.3.min.js"></script>
+<script src="js/app.js"></script>
+</body>
+</html>
