@@ -30,21 +30,22 @@ $( document ).ready(function() {
     start()
     setTimeout(start, 4000);
 })
-
+//function on start : to hide all cards at first
 function start(){
     $(".card").toggleClass("flipInY open show");
 }
 
+//function to randomly create all the cards when the game reloads
 function createCards(){
     shuffle(cards);
     for (let i=0; i< cards.length; i++){
         $(".deck").append(`<li><i class="card  ${cards[i]}"></i></li>`);
     }
 }
-
+// On clicking on a card it shows it and then compare
 function play (){
     $(".card").on("click", function(e){
-        // to prevent another click
+        // to prevent another click when already open
         if ($(this).hasClass("open show")) { return; }
         var clicked = $(this);
         //display the clicked card by passing parameter
@@ -57,15 +58,15 @@ function play (){
         }        
     })
 }
-
+//function to show the card when clicking on it
 function display(card){
     card.toggleClass("flipInY open show");
 }
-
+//function to add the opened card to a list
 function addToOpen(card){
     opened.push(card);
 }
-
+//to compare the second opened card with the first one
 function compare(opened){
     if (opened[0][0].classList[2] === opened[1][0].classList[2]) {
     opened[0][0].classList.add("bounceIn", "match");
@@ -84,6 +85,7 @@ function compare(opened){
     stars();
 }
 
+// remove the cards from the opened card list
 function removeOpenCards() {
     opened= [];
 }
@@ -94,7 +96,7 @@ function removeClasses() {
         card.removeClass("show open flipInY bounceIn shake unmatch");
     })
 }
-
+// Update after each round
 function updateMoves(){
     moves++
     if (moves === 1){
@@ -104,7 +106,7 @@ function updateMoves(){
     }
     $(".moves").text(moves.toString());
 }
-
+// to check if you finished the game
 function winGame() {
     if(matches === 8){
     $(".main").css("display","none");
@@ -113,13 +115,13 @@ function winGame() {
     clearInterval(timer)
     } 
 }
-
+// refresh key 
 function playAgain() {
     $(".refresh").on("click", function() {
         location.reload()
     });
 }
-
+// function for rating your score
 function stars() {
     if(moves >= 8 && moves <= 13){
         $(".noStars").text("2");
@@ -134,7 +136,7 @@ function stars() {
         $(".noStars").text("3");
     } 
 }
-
+// a timer triggerd after the first click to show how much time you will take to finish the game
 function startTimer(){
    let secs=0,
        clicks=0;     
